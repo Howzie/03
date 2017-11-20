@@ -98,3 +98,4 @@ development:
 production:
   <<: *common
   database: shop_production
+  
