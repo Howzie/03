@@ -1,0 +1,132 @@
+<div class="container">
+	<div class="col-lg-12">
+		<div class="row show-order-main">
+			<div class="col-lg-12">
+				<div class="user-name">
+					<p class="b_name">Order No: <span><%= @user_order.id %></span></p>
+				</div>
+				<% if current_user.user_type == false %>
+					<div class="user-name">
+						<p class="b_name">Name: <span><%= @user_order.user.name %></span></p>
+					</div>
+				<% else %>
+					<div class="user-name">
+						<p class="b_name">Buyer name: <span><%= @user_order.user.name %></span></p>
+					</div>
+				<% end %>
+				<div class="table-responsive">
+		            <table class="table table-striped receipt">
+		                <thead>
+		                    <tr>
+		                        <th>Item Code</th>
+		                        <th>Item Name</th>
+		                        <th>Item Qty</th>
+		                        <th>Item Price</th>
+		                        <th>Delivery Date</th>
+		                        <th>Total</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    <tr>
+		                        <td><%= @user_order.item.code %></td>
+		                        <td><%= @user_order.item.name %></td>
+		                        <td><%= @user_order.item_qty %></td>
+		                        <td> INR <%= @user_order.item.price %></td>
+		                        <td><%= @user_order.delivery_date %></td>
+		                        <td> INR <%= @user_order.item_qty * @user_order.item.price %></td>
+		                        <% @total = @user_order.item_qty * @user_order.item.price  %>
+		                    </tr>
+		                    <tr>
+		                    	<td>Paid amount</td>
+		                    	<td>&nbsp;</td>
+		                    	<td>&nbsp;</td>
+		                    	<td>&nbsp;</td>
+		                    	<td>&nbsp;</td>
+		                    	<td>INR <%= @total %></td>
+		                    </tr>
+		                </tbody>
+		            </table>
+				</div>
+			</div>
+			<div class="row main">
+				<div class="col-lg-3 deli-address">
+					<h4 class="order-address">Delivery address: </h4>
+				</div>
+				<div class="col-lg-9">
+					<h4 class="date"><%= @user_order.delivery_add %></h4>
+				</div>
+			</div>
+			<% if @user_order.is_completed == true and current_user.user_type == false %>
+				<button type="button" class="btn btn-success completed_btn_disable" data-id ="<%= @user_order.id %>" disabled>Completed</button>
+				<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
+			<% else %>
+				<% if @user_order.is_delivered == true%>
+					<div class="row main">
+						<div class="col-lg-12">
+							<% if @user_order.is_completed == true %>
+								<button type="button" class="btn btn-success delivered_btn" data-id ="<%= @user_order.id %>" disabled>Delivered</button>
+								<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
+							<% else %>
+								<% if current_user.user_type == false %>
+									<button type="button" class="btn btn-success completed_btn" data-id ="<%= @user_order.id %>">Completed</button>
+									<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
+									<button type="button" style="display:none;" class="btn btn-success completed_btn_disable" data-id ="<%= @user_order.id %>" disabled>Completed</button>
+								<% else %>
+									<button type="button" class="btn btn-success delivered_btn" data-id ="<%= @user_order.id %>">Delivered</button>
+									<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
+									<button type="button" style="display:none;" class="btn btn-success deliver-btn" data-id ="<%= @user_order.id %>">Deliver</button>
+								<% end %>
+							<% end %>
+				<% else %>
+							<button type="button" class="btn btn-success deliver-btn" data-id="<%= @user_order.id %>">Deliver</button>
+							<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
+							<button type="button" style="display:none;" class="btn btn-success delivered_btn" data-id ="<%= @user_order.id %>">Delivered</button>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.deliver-btn').click(function(){
+			var order_id = $(this).attr("data-id");
+			$.ajax({
+				type: "get",
+				url: '/orders/' + order_id + '/deliver_order',
+				success:function(data){
+					$(".deliver-btn").hide();
+                	$(".delivered_btn").show();
+				}
+			});
+		});
+		$('.delivered_btn').click(function(){
+			var order_id = $(this).attr("data-id");
+			$.ajax({
+				type: "get",
+				url: '/orders/' + order_id + '/deliver_order',
+				success:function(data){
+					$(".delivered_btn").hide();
+                	$(".deliver-btn").show();
+				}
+			});
+		});
+		$('.completed_btn').click(function(){
+			var order_id = $(this).attr("data-id");
+			$.ajax({
+				type: "get",
+				url: '/orders/' + order_id + '/order_status',
+				success:function(data){
+					$(".completed_btn").hide();
+                	$(".completed_btn_disable").show();
+				}
+			});
+		});
+	});
+</script>
+<style type="text/css">
+	a.btn.btn-primary.new-order{
+		display: none;
+	}
+</style>

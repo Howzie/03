@@ -1,0 +1,566 @@
+// Place all the styles related to the dashboards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+input.btn.btn-primary.re-send {
+    margin-bottom: 10px;
+}
+
+.your-order {
+    text-align: center;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+
+.col-lg-3.new-orders {
+    margin-top: 30px;
+}
+
+.pay-btn {
+    text-align: center;
+}
+
+.col-lg-12.pay-section {
+    margin-top: 30px;
+}
+
+span.confirm {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input#is_confirm {
+    width: 25px;
+    height: 25px;
+    vertical-align: text-bottom;
+}
+
+.modify-order.pull-right a, .make-order a, .nxt-btn a, .nxt-prev a, .search-btn input[type=submit]{
+    font-weight: 700;
+}
+
+p.no-slug {
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: 600;
+    text-align: center;
+}
+
+h4.order-head {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form-group.search-csv {
+    /* margin-bottom: 35px; */
+}
+
+.upld-inventory input[type=file]{
+	margin-bottom: 35px;
+}
+
+.order-list{
+	background-color: #F8F8F8;
+    text-align: center;
+    padding: 15px 0px;
+    margin-top: 21px;
+}
+
+.row.main {
+    margin-bottom: 36px;
+}
+
+.col-lg-12.main-class-done {
+    background-color: #F2F2F2;
+    border-radius: 22px;
+}
+
+h3.heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+table.table.table-hover.receipt td {
+    width: 18%;
+}
+
+table.table-class {
+    width: 100%;
+}
+
+tr.spaceUnder>td {
+  padding-bottom: 1em;
+}
+
+p.unhappy {
+    font-weight: bold;
+}
+
+a.btn.btn-primary.new-order {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    /* margin-top: 8px; */
+    color: white;
+    font-weight: bold;
+    line-height: normal;
+}
+
+h2.main-heading {
+    margin-bottom: 39px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+img.img_preview {
+    width: 35%;
+    margin-top: -10px;
+}
+
+p.important-note {
+    color: #D7A60C;
+    font-size: 16px;
+}
+
+span.note-bold {
+    border-bottom: 1px solid black;
+}
+
+a.btn.btn-primary.smpl-csv {
+    margin-left: 12px;
+}
+
+a.btn.btn-primary.new-order:hover {
+    background-color: #3071A9;
+    color: white;
+}
+
+//a.new-order {
+    //font: normal normal normal 14px/1 FontAwesome;
+//}
+
+td.last-td {
+    text-align: left;
+    width: 10%;
+    font-weight: bold;
+}
+
+a.btn.btn-primary.make-new-order {
+    float: right;
+}
+
+a.btn.btn-primary.go-dashboard {
+    float: right;
+    margin-right: 13px;
+}
+
+.order-date{
+	text-align: left;
+    margin-left: 5px;
+}
+
+.row.show-order-main {
+    background-color: #e6e6e6;
+    border-radius: 22px;
+    padding-top: 35px;
+	margin-top: 30px;
+	padding-bottom: 30px;
+}
+
+.user-paid {
+    padding-left: 24px;
+    font-weight: bold;
+}
+
+.order-address {
+    padding-left: 24px;
+    font-weight: bold;
+}
+
+.date {
+    font-weight: bold;
+}
+
+.b_name {
+    padding-left: 6px;
+    font-weight: bold;
+}
+
+.btn.btn-success.deliver-btn {
+    margin-left: 27px;
+    font-weight: bold;
+}
+
+.col-lg-3.deli-address {
+    width: 17%;
+}
+
+.btn.btn-success.delivered_btn {
+    margin-left: 27px;
+    font-weight: bold;
+}
+
+.btn.btn-primary.back-btn {
+    float: right;
+    margin-right: 27px;
+}
+
+.btn.btn-success.completed_btn {
+    margin-left: 27px;
+    font-weight: bold;
+}
+
+.btn.btn-success.completed_btn_disable{
+	margin-left: 27px;
+    font-weight: bold;
+}
+
+.navbar.navbar-default.navbar-static-top.landing-nav {
+    margin-bottom: 0px;
+}
+
+p.customer_no {
+    margin-top: 34px;
+    float: right;
+    font-size: 16px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #fff !important;
+    border-radius: 9% !important;
+    -webkit-border-radius: 9% !important;
+    box-shadow: 0 0 4px rgb(255, 255, 255);
+}
+
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #003eff;
+    background: #007fff;
+    font-weight: normal;
+    color: #454545;
+}
+
+.about-main a.about_us {
+    color: #ffff66;
+    text-transform: uppercase;
+}
+
+.about-main a.about_us:hover {
+    color: #ffff66;
+}
+
+i.icon_house_alt {
+    color: #fff !important;
+}
+
+.faq-main a.faqs {
+    color: #ffff66;
+    text-transform: uppercase;
+}
+
+.faq-main a.faqs:hover {
+    color: #ffff66;
+}
+
+h3.star-heading {
+    background-color: #ffff66;
+    padding: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a.btn.btn-primary.btnPrevious {
+    float: left !important;
+}
+
+.instruction-password {
+    margin-bottom: 10px;
+}
+
+span.forgot-pass-instru {
+    color: #333333;
+}
+
+input.btn.btn-primary.reset-pass-btn {
+    float: right;
+}
+
+ol.breadcrumb {
+    margin-top: 65px;
+    text-transform: uppercase;
+    height: 44px;
+}
+
+p.breadcrumb-name {
+    margin-top: 4px;
+}
+
+span.customer-id {
+    font-size: 16px;
+}
+
+h4.search-text {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.col-xs-12.col-sm-12.col-md-12.col-lg-12.compare-order {
+    padding: 0px;
+}
+
+table.table {
+    margin-bottom: 0px;
+}
+
+a.btn.btn-primary.compare-btn.pull-right {
+    margin-right: 55px;
+}
+
+input#file {
+    margin-bottom: 14px;
+}
+
+a.btn.btn-primary.new-order.pull-right.merchant-action {
+    margin-right: 15px;
+}
+
+div.nav-collapse.auth-sidebar {
+    width: 40% !important;
+}
+div.wrapper.auth-sidebar {
+    width: 60%;
+    float: right;
+}
+@media (min-width: 1200px){
+    div.container.auth-container {
+        width: 100%;
+    }
+}
+
+.logo-slug{
+    width: 300px;
+    height: 188px;
+    z-index: 15;
+    margin-top: 25%;
+    margin-left: 25%;
+    bottom: 10%;
+    padding: 10px;
+    color: #ffff66;
+    border: 1px solid white;
+    margin-bottom: 20%;
+}
+
+ul.sidebar-menu li {
+    text-align: center;
+}
+
+h3.howzie-logo {
+    text-align: center;
+    font-size: 59px;
+    font-weight: bold;
+}
+
+p.howzie-slug {
+    text-align: center;
+    font-size: 18px;
+}
+
+.about-main a.about_us.main-layout-about-us {
+    padding-left: 15%;
+    text-align: left;
+}
+
+
+.faq-main a.faqs.main-layout-faq {
+    padding-left: 15%;
+    text-align: left;
+}
+
+h4.order-delivery-add {
+    font-size: 16px;
+}
+
+.main {
+    margin-left: 50px;
+}
+
+// footer css
+
+.footer-distributed{
+	background-color: #F8F8F8;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 14px sans-serif;
+    padding: 10px 32px;
+    // margin-top: 20px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 100%;
+	text-align: center;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font-family: inherit;
+}
+
+.footer-distributed h3 span{
+	color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #777;
+	margin: 20px 0 12px;
+	padding: 0;
+	text-align: right;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color: #333333;
+	font-size: 14px;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #5383d3;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 49%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+h3.footer-heading {
+    color: #777;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}

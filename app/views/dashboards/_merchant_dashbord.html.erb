@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<h3 class="star-heading">
+				Your Inventory list
+			</h3>
+	    </div>
+    </div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="user-orders">
+				<div class="merch-item">
+					<div class="table-responsive">
+			            <table class="table table-striped">
+			                <thead>
+			                    <tr>
+			                        <th>Item Code</th>
+			                        <th>Item Name</th>
+			                        <th>Item Specification</th>
+			                        <th>Item Price</th>
+			                        <th>Item Stock</th>
+			                        <th>Item Delivery Days</th>
+			                    </tr>
+			                </thead>
+
+			                <tbody>
+			                    <% @merchant_items.each do |h| %>
+		                            <tr>
+		                                <td><%= h.code %></td>
+		                                <td><%= h.name %></td>
+		                                <td><%= h.specification %></td>
+		                                <td><%= h.price %></td>
+		                                <td><%= h.stock %></td>
+		                                <td><%= h.delivery_days %></td>
+		                            </tr>
+			                    <% end %>
+			                </tbody>
+			            </table>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

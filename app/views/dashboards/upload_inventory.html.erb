@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<h3 class="star-heading">
+				Upload inventory
+			</h3>
+	    </div>
+    </div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="upld-inventory">
+				<%= form_tag  import_dashboards_path, multipart: true, onsubmit: "return Validate(this);" do %>
+					<%= file_field_tag :file, :required => true %>
+					<%= submit_tag "Upload Inventory", class: "btn btn-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	a.btn.btn-primary.new-order{
+		display: none;
+	}
+</style>

@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 compare-order">
+          <h3 class="star-heading">
+            Compare and order
+          </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Item Specification</th>
+                        <th>Item Price</th>
+                        <th>Item Delivery Date</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                        <% i = 0 %>
+                        <% @count = 0 %>
+                        <% @short_items.each do |h| %>
+                            <% h.each do |s| %>
+                                <tr id="element" class="item_<%= s.id %>">
+                                    <td><%= s.code %></td>
+                                    <td><%= s.name %></td>
+                                    <td><%= s.specification %></td>
+                                    <td>INR <%= s.price %></td>
+                                    <td><%= @start_date + s.delivery_days %></td>
+                                    <td>
+                                        <label><input type="radio" class="user_item" id="item_<%= s.id %>" name="<%= s.code %>" data-id="<%= s.id %>-<%= @qty[i]%>" data-val="<%= @qty[i] %>"></label>
+                                    </td>
+                                </tr>
+                            <% end %>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr></tr>
+                                <% @count += 1 %>
+                                <% i += 1 %>
+                        <% end %>
+                        <% session[:count] = @count %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <%= link_to "Next", show_order_orders_path, class: 'btn btn-primary compare-btn pull-right'%>
+        </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        // $(".user_item").click(function(){
+        //     $('.user_item').removeClass("checked");
+        //     $(this).addClass("active");
+        // });
+        $(".user_item").click(function(){
+            var dclass = $(this).closest('tr').next('tr').attr("class");
+            var pclass = $(this).closest('tr').prev('tr').attr("class");
+            var ddclass = $(this).closest('tr').next('tr').next('tr').attr("class");
+            var ppclass = $(this).closest('tr').prev('tr').prev('tr').attr("class");
+            $('.'+ dclass).css('background-color', 'white');
+            $('.'+ pclass).css('background-color', 'white');
+            $('.'+ ddclass).css('background-color', 'white');
+            $('.'+ ppclass).css('background-color', 'white');
+            var a = $(this).attr("id");
+            $('.'+ a).css('background-color', 'rgb(200, 225, 255)');
+            var item_id = $(this).attr("data-id");
+            $.ajax({
+                type: "get",
+                url: '/orders/' + item_id + '/user_order',
+                success:function(data) {
+                    // alert(data);
+                }
+            });
+        });
+    });
+</script>
+<style type="text/css">
+    a#u-order{
+        display: none;
+    }
+
+    a.btn.btn-primary.new-order.pull-right {
+        display: none;
+    }
+
+    .col-lg-12.breadcrumb-main {
+        padding: 0px;
+    }
+</style>

@@ -1,0 +1,51 @@
+<% if @merchants.present? %>
+  <div class="paginated_collection">
+    <div class="paginated_collection_contents">
+      <div class="index_content">
+        <div class="index_as_table">
+          <table border="0" cellpadding="0" cellspacing="0" class="index_table index" id="index_table_fields" paginator="true">
+            <thead>
+              <tr>
+                <th class="col col-name">
+                  Name
+                </th>
+                <th class="col col-name">
+                  Email
+                </th>
+                <th class="col col-name">
+                  Address
+                </th>
+                <th class="col col-name">
+                  Mobile
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @merchants.each do |users| %>
+                <tr class="odd" id="field_74">
+                  <td class="col col-name">
+                    <%= users.name %>
+                  </td>
+                  <td class="col col-name">
+                    <%= users.email %>
+                  </td>
+                  <td class="col col-name">
+                    <%= users.address %>
+                  </td>
+                  <td class="col col-name">
+                    <%= users.mobile %>
+                  </td>
+                  <td>
+                  	<%= link_to "delete", "/admin/users/#{users.id}", method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-delete", role: "button" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <p>Merchant not found</p>
+<% end %>

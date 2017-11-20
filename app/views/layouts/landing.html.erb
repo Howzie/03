@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Shop" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-static-top landing-nav">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- <a class="navbar-brand" href="#">Shop</a> -->
+        <%= link_to image_tag("logo.png", :class => "img_preview"), "/", class: "navbar-brand logo" %>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <% if current_user.user_type == true %>
+                <li><%= link_to "Your Orders", my_orders_orders_path, class: 'merchant-order' %></li>
+                <li><%= link_to "Upload Inventory", upload_inventory_dashboards_path, class: 'merchant-order' %></li>
+                <li><%= link_to " (Merchant) #{current_user.name}", edit_user_registration_path, class:"fa fa-user" %></li>
+              <% else %>
+                <li><%= link_to 'New Order', orders_path, class: 'new-order', id: 'u-order' %></li>
+                <li><%= link_to " (Buyer) #{current_user.name}", edit_user_registration_path, class:"fa fa-user" %></li>
+              <% end %>
+              <li><%= link_to "  Sign out", destroy_user_session_path, :method => :delete, class:"fa fa-sign-out" %></li>
+            <% else %>
+              <li id="login"><%= link_to "  Sign In", new_user_session_path, class:"fa fa-sign-in" %> </li>
+              <li id="logout"><%= link_to "  Sign up", new_user_registration_path, class:"fa fa-sign-up" %> </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= bootstrap_flash %>
+          <div class="sticky-footer">
+            <%= yield %>
+          </div>
+        </div>
+      </div><!--/row-->
+    </div> <!-- /container -->
+  </body>
+  <footer class="footer-distributed">
+    <div class="footer-left">
+      <p class="footer-company-name">ShopIndeed &copy; 2017</p>
+    </div>
+  </footer>
+<script type="text/javascript">
+  $(document).ready(function() {
+    function setHeight() {
+      windowHeight = $(window).innerHeight();
+      $('.sticky-footer').css('min-height', windowHeight-127);
+    };
+    setHeight();
+    
+    $(window).resize(function() {
+      setHeight();
+    });
+  });
+</script>
+</html>

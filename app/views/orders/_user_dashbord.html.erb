@@ -1,0 +1,70 @@
+<div class="container">
+	<div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			<h3 class="star-heading">
+				New Order
+			</h3>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-xs-12 col-lg-6 col-sm-12 col-md-6">
+			<%= form_tag  upload_orders_path, multipart: true, onsubmit: "return Validate(this);" do %>
+				<div class="user_order tab-pane1">
+					<div class="form-group">
+						<p>Delivery address</p>
+						<%= text_area_tag :delivery_add, "", class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<p>Postal code</p>
+						<%= text_field_tag :postal_code, "", class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<p>Delivery date</p>
+						<%= text_field_tag :delivery_date, "", id: 'datepicker', class: "form-control" %>
+					</div>
+					<div class="nxt-btn">
+						<a class="btn btn-primary btnNext pull-right" >Next</a>
+					</div>
+				</div>
+				<div class="user_order tab-pane2">
+					<h4 class="search-text">Search</h4>
+					<div class="form-group search-csv">
+						<%= file_field_tag :file, :required => true %>
+
+						<%= link_to "Download Sample CSV", orders_path(format: "csv"), class: "smpl-csv" %>
+					</div>
+					<p class="important-note"><span class="note-bold">Note* </span>User search CSV must has been this fields <span class="note-bold">code</span>, <span class="note-bold">item</span> and <span class="note-bold">qty</span>.</p>
+					<div class="nxt-prev">
+						<a class="btn btn-primary btnPrevious" >Back</a>
+
+						<%= submit_tag "Search Inventory", class: "btn btn-primary pull-right" %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  	$('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
+	$('.btnNext').click(function(){
+      $('.tab-pane1').css('display', 'none');
+      $('.tab-pane2').css('display', 'block');
+	});
+	$('.btnPrevious').click(function(){
+      $('.tab-pane1').css('display', 'block');
+      $('.tab-pane2').css('display', 'none');
+	});
+  });
+</script>
+
+<style type="text/css">
+	.tab-pane2 {
+		display: none;
+	}
+
+	a.btn.btn-primary.new-order.pull-right {
+    	display: none;
+	}
+</style>
