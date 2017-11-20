@@ -97,5 +97,7 @@ development:
 
 production:
   <<: *common
+  username: iydlotyzeigvio
+  password: eae88d327fe2104330b3899dbe43305cd147159526714b1b2dc511d9363247ca
   database: shop_production
-  
+
