@@ -94,3 +94,7 @@ common: &common
 development:
   <<: *common
   database: shop_dev
+
+production:
+  <<: *common
+  database: shop_production
