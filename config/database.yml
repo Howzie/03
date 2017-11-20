@@ -97,7 +97,10 @@ development:
 
 production:
   <<: *common
+  encoding: unicode
+  port: 5432
+  host: ec2-54-235-65-224.compute-1.amazonaws.com
   username: iydlotyzeigvio
   password: eae88d327fe2104330b3899dbe43305cd147159526714b1b2dc511d9363247ca
-  database: shop_production
+  database: dan40sgfm66n47
 
