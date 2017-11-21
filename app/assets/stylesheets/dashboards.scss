@@ -137,10 +137,6 @@ a.btn.btn-primary.new-order:hover {
     color: white;
 }
 
-//a.new-order {
-    //font: normal normal normal 14px/1 FontAwesome;
-//}
-
 td.last-td {
     text-align: left;
     width: 10%;
@@ -413,6 +409,10 @@ p.delivery_address {
 
 p.order-delivery-add {
     font-size: 15px;
+}
+
+p.edit-customer-id {
+    float: right;
 }
 
 // footer css
