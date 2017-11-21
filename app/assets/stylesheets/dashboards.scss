@@ -70,7 +70,8 @@ h4.order-head {
 }
 
 .row.main {
-    margin-bottom: 36px;
+    margin-bottom: 12px;
+    margin-left: 0px;
 }
 
 .col-lg-12.main-class-done {
@@ -155,8 +156,7 @@ a.btn.btn-primary.go-dashboard {
     margin-right: 13px;
 }
 
-.order-date{
-	text-align: left;
+p.order-date{
     margin-left: 5px;
 }
 
@@ -173,13 +173,13 @@ a.btn.btn-primary.go-dashboard {
     font-weight: bold;
 }
 
-.order-address {
-    padding-left: 24px;
-    font-weight: bold;
+p.order-address {
+    padding-left: 8px;
+    font-size: 15px;
 }
 
-.date {
-    font-weight: bold;
+p.date {
+    font-size: 15px;
 }
 
 .b_name {
@@ -187,7 +187,7 @@ a.btn.btn-primary.go-dashboard {
     font-weight: bold;
 }
 
-.btn.btn-success.deliver-btn {
+.btn.btn-primary.deliver-btn {
     margin-left: 27px;
     font-weight: bold;
 }
@@ -196,7 +196,7 @@ a.btn.btn-primary.go-dashboard {
     width: 17%;
 }
 
-.btn.btn-success.delivered_btn {
+.btn.btn-primary.delivered_btn {
     margin-left: 27px;
     font-weight: bold;
 }
@@ -206,14 +206,16 @@ a.btn.btn-primary.go-dashboard {
     margin-right: 27px;
 }
 
-.btn.btn-success.completed_btn {
+.btn.btn-primary.completed_btn {
     margin-left: 27px;
     font-weight: bold;
 }
 
-.btn.btn-success.completed_btn_disable{
+.btn.btn-primary.completed_btn_disable{
 	margin-left: 27px;
     font-weight: bold;
+    background-color: #233685;
+    border-color: #233685;
 }
 
 .navbar.navbar-default.navbar-static-top.landing-nav {
@@ -403,6 +405,14 @@ h4.order-delivery-add {
 
 .col-xs-12.col-sm-12.col-md-8.col-lg-8.edit-heading {
     margin-left: 31px;
+}
+
+p.delivery_address {
+    font-size: 16px;
+}
+
+p.order-delivery-add {
+    font-size: 15px;
 }
 
 // footer css

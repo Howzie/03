@@ -5,24 +5,16 @@
 				<div class="user-name">
 					<p class="b_name">Order No: <span><%= @user_order.id %></span></p>
 				</div>
-				<% if current_user.user_type == false %>
-					<div class="user-name">
-						<p class="b_name">Name: <span><%= @user_order.user.name %></span></p>
-					</div>
-				<% else %>
-					<div class="user-name">
-						<p class="b_name">Buyer name: <span><%= @user_order.user.name %></span></p>
-					</div>
-				<% end %>
 				<div class="table-responsive">
 		            <table class="table table-striped receipt">
 		                <thead>
 		                    <tr>
 		                        <th>Item Code</th>
 		                        <th>Item Name</th>
+		                        <th>Delivery Date</th>
 		                        <th>Item Qty</th>
 		                        <th>Item Price</th>
-		                        <th>Delivery Date</th>
+		                        <th>GST</th>
 		                        <th>Total</th>
 		                    </tr>
 		                </thead>
@@ -30,14 +22,25 @@
 		                    <tr>
 		                        <td><%= @user_order.item.code %></td>
 		                        <td><%= @user_order.item.name %></td>
+		                        <td><%= @user_order.delivery_date %></td>
 		                        <td><%= @user_order.item_qty %></td>
 		                        <td> INR <%= @user_order.item.price %></td>
-		                        <td><%= @user_order.delivery_date %></td>
-		                        <td> INR <%= @user_order.item_qty * @user_order.item.price %></td>
-		                        <% @total = @user_order.item_qty * @user_order.item.price  %>
+		                        <td>
+                                	<%
+                                		@gst = @user_order.item.price.to_f * @user_order.item.gst.to_f / 100.00
+                                		@gst = @gst * @user_order.item_qty
+                                	 %>
+                                	INR <%= @gst.round(2) %>
+                                </td>			
+		                        <td> 
+		                        	<% @total_price = @user_order.item_qty * @user_order.item.price %>
+		                        	INR <%= @total = @total_price + @gst.round(2) %>
+		                        </td>
+		                        <%# @total = @user_order.item_qty * @user_order.item.price  %>
 		                    </tr>
-		                    <tr>
+		                    <tr style="border:2px solid #000;">
 		                    	<td>Paid amount</td>
+		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>
@@ -49,38 +52,38 @@
 				</div>
 			</div>
 			<div class="row main">
-				<div class="col-lg-3 deli-address">
-					<h4 class="order-address">Delivery address: </h4>
+				<div class="col-lg-2 deli-address">
+					<p class="order-address">Delivery address: </p>
 				</div>
-				<div class="col-lg-9">
-					<h4 class="date"><%= @user_order.delivery_add %></h4>
+				<div class="col-lg-10">
+					<p class="date"><%= @user_order.delivery_add %></p>
 				</div>
 			</div>
 			<% if @user_order.is_completed == true and current_user.user_type == false %>
-				<button type="button" class="btn btn-success completed_btn_disable" data-id ="<%= @user_order.id %>" disabled>Completed</button>
+				<button type="button" class="btn btn-primary completed_btn_disable" data-id ="<%= @user_order.id %>" disabled>Completed</button>
 				<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
 			<% else %>
 				<% if @user_order.is_delivered == true%>
 					<div class="row main">
 						<div class="col-lg-12">
 							<% if @user_order.is_completed == true %>
-								<button type="button" class="btn btn-success delivered_btn" data-id ="<%= @user_order.id %>" disabled>Delivered</button>
+								<button type="button" class="btn btn-primary delivered_btn" data-id ="<%= @user_order.id %>" disabled>Delivered</button>
 								<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
 							<% else %>
 								<% if current_user.user_type == false %>
-									<button type="button" class="btn btn-success completed_btn" data-id ="<%= @user_order.id %>">Completed</button>
+									<button type="button" class="btn btn-primary completed_btn" data-id ="<%= @user_order.id %>">Completed</button>
 									<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
-									<button type="button" style="display:none;" class="btn btn-success completed_btn_disable" data-id ="<%= @user_order.id %>" disabled>Completed</button>
+									<button type="button" style="display:none;" class="btn btn-primary completed_btn_disable" data-id ="<%= @user_order.id %>" disabled>Completed</button>
 								<% else %>
-									<button type="button" class="btn btn-success delivered_btn" data-id ="<%= @user_order.id %>">Delivered</button>
+									<button type="button" class="btn btn-primary delivered_btn" data-id ="<%= @user_order.id %>">Delivered</button>
 									<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
-									<button type="button" style="display:none;" class="btn btn-success deliver-btn" data-id ="<%= @user_order.id %>">Deliver</button>
+									<button type="button" style="display:none;" class="btn btn-primary deliver-btn" data-id ="<%= @user_order.id %>">Deliver</button>
 								<% end %>
 							<% end %>
 				<% else %>
-							<button type="button" class="btn btn-success deliver-btn" data-id="<%= @user_order.id %>">Deliver</button>
+							<button type="button" class="btn btn-primary deliver-btn" data-id="<%= @user_order.id %>">Deliver</button>
 							<%= link_to "Back", :back, class: "btn btn-primary back-btn" %>
-							<button type="button" style="display:none;" class="btn btn-success delivered_btn" data-id ="<%= @user_order.id %>">Delivered</button>
+							<button type="button" style="display:none;" class="btn btn-primary delivered_btn" data-id ="<%= @user_order.id %>">Delivered</button>
 						</div>
 					</div>
 				<% end %>

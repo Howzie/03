@@ -39,16 +39,23 @@
 		                                <td><%= s.item_qty %></td>
 		                                <td><%= s.delivery_date %></td>
 		                                <td><%= s.delivery_add %></td>
-		                                <% if s.is_delivered == true %>
+		                                <% if s.is_completed == true %>
 		                                	<td>
-			                                	<P class="panding-status">Delivered</P>
-			                                	<%= link_to "View", order_path(s.id), class: "view-order" %>
+				                                <P class="panding-status">Confirmed</P>
+				                                <%= link_to "View", order_path(s.id), class: "view-order" %>
 			                                </td>
-			                            <% else %>
-			                                <td>
-			                                	<P class="panding-status">Pending</P>
-			                                	<%= link_to "View", order_path(s.id), class: "view-order" %>
-			                                </td>
+		                                <% else %>
+			                                <% if s.is_delivered == true %>
+			                                	<td>
+				                                	<P class="panding-status">Delivered</P>
+				                                	<%= link_to "View", order_path(s.id), class: "view-order" %>
+				                                </td>
+				                            <% else %>
+				                                <td>
+				                                	<P class="panding-status">Pending</P>
+				                                	<%= link_to "View", order_path(s.id), class: "view-order" %>
+				                                </td>
+			                                <% end %>
 		                                <% end %>
 		                            </tr>
 			                    <% end %>
