@@ -1,13 +1,10 @@
 class DashboardsController < ApplicationController
+	before_action :authenticate_user!
 	require 'csv'
 
 	def index
 		@user_orders = Order.where("user_id =?", current_user.id)
 		@merchant_items = Item.where("user_id =?", current_user.id)
-	end
-
-	def home
-		render :layout => 'landing'
 	end
 
 	def import
@@ -23,14 +20,6 @@ class DashboardsController < ApplicationController
 	end
 
 	def upload_inventory
-		
-	end
-
-	def about_us
-		
-	end
-
-	def faqs
 		
 	end
 end

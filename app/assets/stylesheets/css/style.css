@@ -123,6 +123,7 @@ table tr th { color: #233685;}
 .lite{
 
     color: #ffff66 !important;
+    font-weight: bold;
 
 }
 
@@ -682,7 +683,7 @@ ul.sidebar-menu li a{
 
     display: block;
 
-    padding: 15px 0 15px 10px;
+    padding: 15px 0 0px 10px;
 
     font-size: 16px;
 
@@ -740,7 +741,7 @@ ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
 
 ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
 
-    border-bottom: 1px solid #d0d8df;
+    /*border-bottom: 1px solid #d0d8df;*/
 
 }
 
@@ -1358,7 +1359,7 @@ div[data-role="editor-toolbar"] {
 
 .dropdown-menu.extended li p.blue {
 
-    background-color: #688a7e;
+    background-color: #3B6188;
 
     color: #fff;
 
