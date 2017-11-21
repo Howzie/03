@@ -12,7 +12,7 @@ class DashboardsController < ApplicationController
 	    if !csv_text.blank?
 	    	csv = CSV.parse(csv_text, :headers => true)
 	        csv.each do |row|
-	        	Item.create!(user_id: current_user.id, code: row["code"], name: row["name"], specification: row["specification"], price: row["price"], stock: row["stock"], delivery_days: row["delivery_days"], gst: row["gst"])
+	        	Item.create!(user_id: current_user.id, code: row["Code"], name: row["Name"], specification: row["Specification"], price: row["Price"], stock: row["Stock"], delivery_days: row["Delivery_Days"], gst: row["GST"])
 	      	end
 		end
 		flash[:success] = "CSV has been uploaded!!"
