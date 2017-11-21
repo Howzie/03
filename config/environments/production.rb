@@ -79,7 +79,7 @@ Rails.application.configure do
 
   config.action_mailer.asset_host = "https://hidden-escarpment-22538.herokuapp.com/"
 
-  config.action_mailer.default_url_options = { host: 'https://hidden-escarpment-22538.herokuapp.com/', only_path: false }
+  config.action_mailer.default_url_options = { host: 'https://hidden-escarpment-22538.herokuapp.com/'}
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -92,7 +92,6 @@ Rails.application.configure do
       :domain               => "gmail.com",
       :user_name            => "itserviceyouth@gmail.com",
       :password             => "B@dashah26",
-      :authentication       => :plain,
-      :enable_starttls_auto => true
+      :authentication       => :plain
   }
 end
