@@ -96,8 +96,9 @@ development:
   database: shop_dev
 
 production:
-  <<: *common
+  adapter: postgresql
   encoding: unicode
+  pool: 5
   port: 5432
   host: ec2-54-235-65-224.compute-1.amazonaws.com
   username: iydlotyzeigvio
