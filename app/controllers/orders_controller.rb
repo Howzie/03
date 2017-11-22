@@ -3,6 +3,11 @@ class OrdersController < ApplicationController
 	require 'csv'
 
 	def index
+		# session.delete(:items_id) if session[:items_id].present? 
+		# session.delete(:postal_code) if session[:postal_code].present?
+		# session.delete(:delivery_add) if session[:delivery_add].present?
+		# session.delete(:delivery_date) if session[:delivery_date].present?
+		# session.delete(:count) if session[:count].present?
 		# @merchant_items = Item.where("user_id =?", current_user.id)
 		@sample_csv = ["code", "item", "qty"]
 	    respond_to do |format|
