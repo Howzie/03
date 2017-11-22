@@ -3,51 +3,78 @@ class OrdersController < ApplicationController
 	require 'csv'
 
 	def index
-		# session.delete(:items_id) if session[:items_id].present? 
-		# session.delete(:postal_code) if session[:postal_code].present?
-		# session.delete(:delivery_add) if session[:delivery_add].present?
-		# session.delete(:delivery_date) if session[:delivery_date].present?
-		# session.delete(:count) if session[:count].present?
+		session.delete(:items_id) if session[:items_id].present? 
+		session.delete(:postal_code) if session[:postal_code].present?
+		session.delete(:delivery_add) if session[:delivery_add].present?
+		session.delete(:delivery_date) if session[:delivery_date].present?
+		session.delete(:count) if session[:count].present?
+		session.delete(:item) if session[:item].present?
+
+		puts session[:items_id].inspect
 		# @merchant_items = Item.where("user_id =?", current_user.id)
 		@sample_csv = ["code", "item", "qty"]
 	    respond_to do |format|
 	      format.html
 	      format.csv { send_data @sample_csv.to_csv}
-	      ##we can also change the downloaded CSV file name by setting filename attribute of send_data method
-	      #format.csv { send_data @employees.to_csv, :filename => '<file_name>.csv' }
 	    end
 	end
 
+	# def user_order
+	# 	session[:items_id] = [] if session[:items_id].blank?
+	# 	id = params[:id]
+	# 	m = id.match /(.+)-(\d+)/
+	# 	item = Item.find(m[1]).code
+		
+	# 	session[:items_id] << params[:id]
+	# 	# puts session[:items_id].inspect
+	# 	session[:items_id].each do |a|
+	# 		inner_id = a.match /(.+)-(\d+)/
+	# 		b = Item.find(inner_id[1]).code
+
+	# 		if item == b and session[:items_id].size > session[:count]
+	# 			session[:items_id].delete_if{|i|i == a}
+	# 		end
+	# 	end
+	# 	# puts session[:items_id].inspect
+	# 	render :nothing => true
+	# end
+
 	def user_order
-		session[:items_id] = [] if session[:items_id].blank?
+		session[:items_id] = [] if !session[:items_id].present?
+		session[:item] = {}
 		id = params[:id]
 		m = id.match /(.+)-(\d+)/
 		item = Item.find(m[1]).code
-		
-		session[:items_id] << params[:id]
-		# puts session[:items_id].inspect
-		session[:items_id].each do |a|
-			inner_id = a.match /(.+)-(\d+)/
-			b = Item.find(inner_id[1]).code
+		session[:item].merge!(value: m[1])
+		session[:item].merge!(key: m[2])
+		session[:items_id] = session[:items_id].reject { |h| h["key"] == m[2] } 
+		session[:items_id] << session[:item]
 
-			if item == b and session[:items_id].size > session[:count]
-				session[:items_id].delete_if{|i|i == a}
-			end
-		end
-		# puts session[:items_id].inspect
+		puts session[:items_id].inspect
 		render :nothing => true
 	end
+
+	# def show_order
+	# 	@start_date = Date.today
+	# 	@b, @c = [], []
+	# 	session[:items_id].each do |a|
+	# 		id = a.match /(.+)-(\d+)/
+	# 		@b << id[1]
+	# 		@c << id[2]
+	# 	end
+	# 	@items = Item.where("id IN (?)", @b)
+	# 	# abort @items.inspect
+	# end
 
 	def show_order
 		@start_date = Date.today
 		@b, @c = [], []
 		session[:items_id].each do |a|
-			id = a.match /(.+)-(\d+)/
+			id = a["value"].match /(.+)-(\d+)/
 			@b << id[1]
 			@c << id[2]
 		end
 		@items = Item.where("id IN (?)", @b)
-		# abort @items.inspect
 	end
 
 
@@ -56,7 +83,7 @@ class OrdersController < ApplicationController
 		@end_date = session[:delivery_date].to_date
 		@b, @c, @short_items = [], [], []
 		session[:items_id].each do |a|
-			id = a.match /(.+)-(\d+)/
+			id = a["value"].match /(.+)-(\d+)/
 			item_code = Item.find(id[1])
 
 			@c << id[2]
@@ -94,7 +121,7 @@ class OrdersController < ApplicationController
 		if session[:items_id].present?
 			session[:recent_orders] = []
 			session[:items_id].each do |a|
-				id = a.match /(.+)-(\d+)/
+				id = a["value"].match /(.+)-(\d+)/
 				item = Item.find(id[1])
 
 				delivery_date =  Date.today + item.delivery_days
@@ -110,6 +137,7 @@ class OrdersController < ApplicationController
 			session.delete(:delivery_add)
 			session.delete(:delivery_date)
 			session.delete(:count)
+			session.delete(:item)
 			# @my_orders = Order.where("is_delivered = ?", false)
 			@my_orders = Order.where("id IN (?)", session[:recent_orders])
 			flash[:message] = "Order placed successfully!"		

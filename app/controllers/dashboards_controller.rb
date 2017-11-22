@@ -3,6 +3,13 @@ class DashboardsController < ApplicationController
 	require 'csv'
 
 	def index
+		session.delete(:items_id) if session[:items_id].present? 
+		session.delete(:postal_code) if session[:postal_code].present?
+		session.delete(:delivery_add) if session[:delivery_add].present?
+		session.delete(:delivery_date) if session[:delivery_date].present?
+		session.delete(:count) if session[:count].present?
+		session.delete(:item) if session[:item].present?
+
 		@user_orders = Order.where("user_id =?", current_user.id)
 		@merchant_items = Item.where("user_id =?", current_user.id)
 	end
