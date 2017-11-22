@@ -21,4 +21,10 @@ index do
 	actions
 end
 
+controller do
+    def scoped_collection
+      User.where(user_type: false)
+    end
+end
+
 end
