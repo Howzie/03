@@ -12,12 +12,11 @@ permit_params :email, :encrypted_password, :reset_password_token, :reset_passwor
 #   permitted
 # end
 index do
+	column :id
 	column :email
-	column :sign_in_count
 	column :name
 	column :address
 	column :mobile
-	column :user_type
 	actions
 end
 

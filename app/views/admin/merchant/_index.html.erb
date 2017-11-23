@@ -7,6 +7,9 @@
             <thead>
               <tr>
                 <th class="col col-name">
+                  Id
+                </th>
+                <th class="col col-name">
                   Name
                 </th>
                 <th class="col col-name">
@@ -23,6 +26,9 @@
             <tbody>
               <% @merchants.each do |users| %>
                 <tr class="odd" id="field_74">
+                  <td class="col col-name">
+                    <%= users.id %>
+                  </td>
                   <td class="col col-name">
                     <%= users.name %>
                   </td>

@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
 		session[:items_id] = session[:items_id].reject { |h| h["key"] == m[2] } 
 		session[:items_id] << session[:item]
 
+		puts session[:items_id].inspect
 		render :nothing => true
 	end
 
@@ -130,7 +131,7 @@ class OrdersController < ApplicationController
 		if @user_order.is_completed == true
 			@update_order = @user_order.update_attributes(is_completed: false)
 		else
-			@update_order = @user_order.update_attributes(is_completed: true)
+			@update_order = @user_order.update_attributes(is_completed: true, confirm_date: DateTime.now)
 		end
 		render :nothing => true
 	end

@@ -13,6 +13,7 @@ permit_params :code, :name, :specification, :price, :stock, :delivery_days
 # end
 
 index do
+	column :id
 	column :code
 	column :name
 	column :specification

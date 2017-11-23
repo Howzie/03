@@ -38,8 +38,14 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recent Orders" do
             table_for Order.order("delivery_date asc").limit(5) do
-                column :name do |order|
-                    link_to order.item.name, [:admin, order]
+                column "Order No", :id do |order|
+                    link_to order.id, [:admin, order]
+                end
+                column "Customer Id", :user_id do |u_id|
+                    link_to u_id.user_id, [:admin, u_id]
+                end
+                column "Merchant Id", :merchant_id do |m_id|
+                    link_to m_id.merchant_id, [:admin, m_id]
                 end
                 column :delivery_date
             end
