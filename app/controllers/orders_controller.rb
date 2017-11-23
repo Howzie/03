@@ -11,33 +11,12 @@ class OrdersController < ApplicationController
 		session.delete(:item) if session[:item].present?
 
 		puts session[:items_id].inspect
-		# @merchant_items = Item.where("user_id =?", current_user.id)
 		@sample_csv = ["code", "item", "qty"]
 	    respond_to do |format|
 	      format.html
 	      format.csv { send_data @sample_csv.to_csv}
 	    end
 	end
-
-	# def user_order
-	# 	session[:items_id] = [] if session[:items_id].blank?
-	# 	id = params[:id]
-	# 	m = id.match /(.+)-(\d+)/
-	# 	item = Item.find(m[1]).code
-		
-	# 	session[:items_id] << params[:id]
-	# 	# puts session[:items_id].inspect
-	# 	session[:items_id].each do |a|
-	# 		inner_id = a.match /(.+)-(\d+)/
-	# 		b = Item.find(inner_id[1]).code
-
-	# 		if item == b and session[:items_id].size > session[:count]
-	# 			session[:items_id].delete_if{|i|i == a}
-	# 		end
-	# 	end
-	# 	# puts session[:items_id].inspect
-	# 	render :nothing => true
-	# end
 
 	def user_order
 		session[:items_id] = [] if !session[:items_id].present?
@@ -50,21 +29,8 @@ class OrdersController < ApplicationController
 		session[:items_id] = session[:items_id].reject { |h| h["key"] == m[2] } 
 		session[:items_id] << session[:item]
 
-		puts session[:items_id].inspect
 		render :nothing => true
 	end
-
-	# def show_order
-	# 	@start_date = Date.today
-	# 	@b, @c = [], []
-	# 	session[:items_id].each do |a|
-	# 		id = a.match /(.+)-(\d+)/
-	# 		@b << id[1]
-	# 		@c << id[2]
-	# 	end
-	# 	@items = Item.where("id IN (?)", @b)
-	# 	# abort @items.inspect
-	# end
 
 	def show_order
 		@start_date = Date.today
@@ -138,7 +104,6 @@ class OrdersController < ApplicationController
 			session.delete(:delivery_date)
 			session.delete(:count)
 			session.delete(:item)
-			# @my_orders = Order.where("is_delivered = ?", false)
 			@my_orders = Order.where("id IN (?)", session[:recent_orders])
 			flash[:message] = "Order placed successfully!"		
 		else
