@@ -23,8 +23,10 @@ index do
 		end
     end
     column "Item code", :item_id do |item|
-		item_code = Item.find(item.item_id)
-		item_code.code if item_code.present?
+    	div :class => "code" do
+			item_code = Item.find(item.item_id)
+			item_code.code if item_code.present?
+		end
     end
 	column "Qty", :item_qty
 	column :postal_code
