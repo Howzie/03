@@ -68,6 +68,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
  
   def create
     super
+    # flash[:message] = "Please check your email and activate your account!"
   end
  
   # private
