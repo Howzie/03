@@ -81,7 +81,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u|
-      u.permit(:email, :password, :password_confirmation, :name, :address, :mobile, :user_type,accounts_attributes: [:user_id, :bank_name, :bank_address, :account_no, :IFSC, :PAN, :GST])
+      u.permit(:email, :password, :password_confirmation, :name, :company_name, :address, :mobile, :user_type,accounts_attributes: [:user_id, :bank_name, :bank_address, :account_no, :IFSC, :PAN, :GST])
     }
 
     devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(
@@ -89,6 +89,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :password, 
       :password_confirmation, 
       :name, 
+      :company_name,
       :address, 
       :mobile, 
       :user_type,

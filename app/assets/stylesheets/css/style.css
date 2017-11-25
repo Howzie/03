@@ -16,7 +16,7 @@ body {
 
     color: black;
 
-    background: #eeeeee;
+    /*background: #eeeeee; */
 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -1113,8 +1113,16 @@ a.logo span {
 
     margin-top: 15px;
 
-    margin-left: 65px;
+    /*margin-left: 65px;*/
 
+}
+
+.col-xs-12.col-sm-12.col-md-8.col-lg-8.my_orders {
+    margin-left: 1.5%;
+}
+
+.col-xs-12.col-sm-12.col-md-2.col-lg-2.nav-notify {
+    padding-top: 10px;
 }
 
 #task_notificatoin_bar, #mail_notificatoin_bar, #alert_notificatoin_bar{

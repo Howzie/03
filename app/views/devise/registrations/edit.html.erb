@@ -49,6 +49,11 @@
                             </div>
 
                             <div class="form-group">
+                                <%= f.label :company_name %>&nbsp;&nbsp;<sub style="bottom: 0.01em;">(if applicable)</sub>
+                                <%= f.text_area :company_name, autocomplete: true, placeholder: " Enter your company name", class: "form-control" %>
+                            </div>
+
+                            <div class="form-group">
                                 <%= f.label :address %>
                                 <%= f.text_area :address, autocomplete: true, placeholder: " Enter your address", class: "form-control" %>
                             </div>

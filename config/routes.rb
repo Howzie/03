@@ -17,6 +17,8 @@
   end
   match "make_order", to: "orders#make_order", as: :make_order, via: [:get, :post]
 
+  match '/send_mail', to: 'pages#send_mail', via: 'post'
+
   resources :dashboards do
     post :import, :on => :collection
     get :upload_inventory, :on => :collection

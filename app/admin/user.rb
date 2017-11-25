@@ -11,6 +11,11 @@ permit_params :email, :encrypted_password, :reset_password_token, :reset_passwor
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+ActiveAdmin.register User do
+  config.per_page = 25
+end
+
+
 index do
 	column :id
 	column :email

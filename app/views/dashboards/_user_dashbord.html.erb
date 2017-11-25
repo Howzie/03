@@ -1,11 +1,11 @@
 <div class="container">
-	<div class="row">
+	<!-- <div class="row">
 	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<h3 class="star-heading">
 				Your Orders
 			</h3>
 	    </div>
-    </div>
+    </div> -->
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<% if @user_orders.blank? %>
@@ -17,10 +17,10 @@
 		                    <tr>
 		                        <th>Order No</th>
 		                        <th>Item Name</th>
-		                        <th>Item Specification</th>
-		                        <th>Item Price</th>
+		                        <!-- <th>Item Specification</th> -->
+		                        <th>Price</th>
 		                        <th>Qty</th>
-		                        <th>Item Delivery Date</th>
+		                        <th>Delivery Date</th>
 		                        <th>Status</th>
 		                    </tr>
 		                </thead>
@@ -30,10 +30,10 @@
 	                            <tr id="element">
 	                                <td><%= s.id %></td>
 	                                <td><%= s.item.name %></td>
-	                                <td><%= s.item.specification %></td>
+	                                <!-- <td><%#= s.item.specification %></td> -->
 	                                <td>INR <%= s.item.price %></td>
 	                                <td><%= s.item_qty %></td>
-	                                <td><%= s.delivery_date %></td>
+	                                <td><%= s.delivery_date.strftime("%d/%m/%Y") %></td>
 	                                <% if s.is_completed == true %>
 	                                	<td>
 			                                <P class="panding-status">Confirmed</P>
@@ -59,4 +59,7 @@
 			<% end %>
 		</div>
 	</div>
+	<%= will_paginate @user_orders, renderer: BootstrapPagination::Rails %>
 </div>
+
+

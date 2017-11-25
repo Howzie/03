@@ -30,7 +30,9 @@ ActiveAdmin.register_page "Dashboard" do
                 column :name do |user|
                     link_to user.name, [:admin, user]
                 end
-                column :created_at
+                column :created_at do |order_date|
+                    order_date.created_at.strftime("%d/%m/%Y")
+                end
             end
             strong { link_to "View All Users", admin_users_path }
         end
@@ -47,7 +49,9 @@ ActiveAdmin.register_page "Dashboard" do
                 column "Merchant Id", :merchant_id do |m_id|
                     link_to m_id.merchant_id, [:admin, m_id]
                 end
-                column :delivery_date
+                column :delivery_date do |order_date|
+                    order_date.delivery_date.strftime("%d/%m/%Y")
+                end
             end
             strong { link_to "View All Orders", admin_orders_path }
         end

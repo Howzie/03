@@ -10,8 +10,8 @@ class DashboardsController < ApplicationController
 		session.delete(:count) if session[:count].present?
 		session.delete(:item) if session[:item].present?
 
-		@user_orders = Order.where("user_id =?", current_user.id)
-		@merchant_items = Item.where("user_id =?", current_user.id)
+		@user_orders = Order.where("user_id =?", current_user.id).paginate(:page => params[:page], :per_page => 50)
+		@merchant_items = Item.where("user_id =?", current_user.id).paginate(:page => params[:page], :per_page => 50)
 	end
 
 	def import

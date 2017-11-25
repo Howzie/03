@@ -11,6 +11,7 @@
 		                    <tr>
 		                        <th>Item Code</th>
 		                        <th>Item Name</th>
+		                        <th>Item Specification</th>
 		                        <th>Delivery Date</th>
 		                        <th>Item Qty</th>
 		                        <th>Item Price</th>
@@ -22,7 +23,8 @@
 		                    <tr>
 		                        <td><%= @user_order.item.code %></td>
 		                        <td><%= @user_order.item.name %></td>
-		                        <td><%= @user_order.delivery_date %></td>
+		                        <td><%= @user_order.item.specification %></td>
+		                        <td><%= @user_order.delivery_date.strftime("%d/%m/%Y") %></td>
 		                        <td><%= @user_order.item_qty %></td>
 		                        <td> INR <%= @user_order.item.price %></td>
 		                        <td>
@@ -40,6 +42,7 @@
 		                    </tr>
 		                    <tr style="border:2px solid #000;">
 		                    	<td>Paid amount</td>
+		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>

@@ -31,7 +31,7 @@
 	                            <% @my_orders.each do |h| %>
 		                            <tr>
 		                                <td><%= h.id %></td>
-		                                <td><%= h.delivery_date %></td>
+		                                <td><%= h.delivery_date.strftime("%d/%m/%Y") %></td>
 		                                <td><%= h.item.name %></td>
 		                                <td><%= h.item_qty %></td>
 		                                <td> INR <%= h.item.price %></td>

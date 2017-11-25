@@ -1,5 +1,7 @@
 ActiveAdmin.register_page "Merchant" do
 
+
+
   content only: :index do
     render 'index'
   end

@@ -35,7 +35,7 @@
                                 <td><%= s.price %></td>
                                 <td><%= s.delivery_days %></td>
                                 <td><%= @c[i] %></td>
-                                <td><%= @start_date + s.delivery_days %></td>
+                                <td><%= (@start_date + s.delivery_days).strftime("%d/%m/%Y") %></td>
                                 <td>
                                     <label><input type="radio" class="user_item" id="item_<%= s.id %>" name="<%= s.code %>" data-id="<%= s.id %>-<%= @c[i]%>-<%= @count %>" data-val="<%= @c[i] %>"></label>
                                 </td>

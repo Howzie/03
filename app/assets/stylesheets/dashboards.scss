@@ -103,7 +103,6 @@ p.unhappy {
 a.btn.btn-primary.new-order {
     padding-top: 6px;
     padding-bottom: 6px;
-    /* margin-top: 8px; */
     color: white;
     font-weight: bold;
     line-height: normal;
@@ -273,6 +272,23 @@ h3.star-heading {
     background-color: #ffff66;
     padding: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+}
+
+.nav-head {
+    background-color: #ffff66;
+    padding: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    margin-top: 17px;
+}
+
+.nav-head span.breadcrumb-name {
+    padding-right: 50px;
+}
+
+span.nav-title {
+    font-size: 20px;
 }
 
 a.btn.btn-primary.btnPrevious {

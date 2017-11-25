@@ -13,6 +13,10 @@ permit_params :user_id, :merchant_id, :item_id, :item_qty, :delivery_add, :posta
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+ActiveAdmin.register Order do
+  config.per_page = 25
+end
+
 index do
 	column "User Id", :user_id
 	column "Order No", :id
@@ -35,7 +39,6 @@ index do
 		date.delivery_date.strftime("%d/%m/%Y")
 	end
 	column "Delivery status", :status do |status|
-		# abort status.inspect
 		if status.is_delivered == false
 			"Pending"
 		elsif status.is_completed == true

@@ -17,3 +17,27 @@
 //   .status_tag { background: #6090DB; }
 div.item { width: 500px; }
 div.code { width: 110px; }
+.panel_contents table th, .section > h3, .panel > h3 {
+    color: #111111;
+}
+.panel_contents table th {
+    font-size: 10px;
+}
+.panel > h3, table.index_table th {
+    font-size: 14px;
+}
+.section, .panel {
+    background: #ffffff;
+}
+.panel_contents table tr.odd td, .panel_contents table tr.even td {
+    background: #ffffff;
+}
+table.index_table tr.even td {
+    background: #ffffff;
+}
+body, h1, h2, h3, h4, h5, h6, .sidebar_section label, table.index_table th a, table.index_table th a:link, table.index_table th a:visited, table.index_table th {
+    color: #111111;
+}
+body {
+    line-height: 1;
+}

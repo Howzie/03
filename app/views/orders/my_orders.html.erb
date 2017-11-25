@@ -37,7 +37,7 @@
 		                                <td><%= s.item.specification %></td>
 		                                <td><%= s.item.price %></td>
 		                                <td><%= s.item_qty %></td>
-		                                <td><%= s.delivery_date %></td>
+		                                <td><%= s.delivery_date.strftime("%d/%m/%Y") %></td>
 		                                <td><%= s.delivery_add %></td>
 		                                <% if s.is_completed == true %>
 		                                	<td>

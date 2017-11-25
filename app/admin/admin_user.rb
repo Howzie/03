@@ -1,13 +1,21 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
 
+ActiveAdmin.register User do
+  config.per_page = 25
+end
+
   index do
     selectable_column
     id_column
     column :email
-    column :current_sign_in_at
+    column :current_sign_in_at do |admin_user|
+        admin_user.current_sign_in_at.strftime("%d/%m/%Y  %H:%M")
+    end
     column :sign_in_count
-    column :created_at
+    column :created_at do |admin_user|
+        admin_user.created_at.strftime("%d/%m/%Y  %H:%M")
+    end
     actions
   end
 

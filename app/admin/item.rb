@@ -11,6 +11,9 @@ permit_params :code, :name, :specification, :price, :stock, :delivery_days
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+ActiveAdmin.register Item do
+  config.per_page = 25
+end
 
 index do
 	column :id
