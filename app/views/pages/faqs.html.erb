@@ -1,6 +1,7 @@
 <div class="container-content">
     <div class="container">
-        <%= form_tag(send_mail_path) do %>
+      <h3 style="font-weight: bold;">Contact Form</h3><br/>
+        <%= form_tag send_mail_path, class: "contact_form" do %>
             <div class="form-group">
                 <%= label_tag 'name', 'Name' %>
                 <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
@@ -17,3 +18,9 @@
        <% end %>
   </div>
 </div>
+
+<style type="text/css">
+  form.contact_form {
+    width: 50%;
+  }
+</style>
