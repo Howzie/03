@@ -280,7 +280,8 @@ h3.star-heading {
     padding: 10px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #111;
-    margin-top: 17px;
+    margin-top: 7px;
+    margin-left: 21px;
 }
 
 .nav-head span.breadcrumb-name {
@@ -411,10 +412,12 @@ h4.order-delivery-add {
 
 .about-main a.about_us {
     border-bottom: none;
+    border-right: none;
 }
 
 .faq-main a.faqs {
     border-bottom: none;
+    border-right: none;
 }
 
 .col-xs-12.col-sm-12.col-md-8.col-lg-8.edit-heading {
@@ -435,6 +438,10 @@ p.edit-customer-id {
 
 span.regi-link {
     font-size: 19px;
+}
+
+i.icon_menu {
+    display: none;
 }
 
 // footer css
@@ -609,4 +616,82 @@ h3.footer-heading {
 		margin-left: 0;
 	}
 
+}
+
+@media (max-width: 767px){
+
+    .col-xs-3.col-sm-3.col-md-2.col-lg-2.nav-notify {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .top-nav ul.top-menu > li {
+        margin-left: 0px;
+    }
+
+    span.nav-title {
+        font-size: 12px;
+    }
+    .nav-head span.breadcrumb-name {
+            font-size: 8px;
+    }
+    span.customer-id {
+        font-size: 8px;
+    }
+    a.btn.btn-primary.new-order {
+        font-size: 8px;
+    }
+    a.logo span {
+        font-size: 10px;
+    }
+    .notification-row, .task_notificatoin_bar, .search-row, .knob-charts, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
+      display: block !important; 
+    }
+
+    i.icon_menu {
+        display: block;
+    }
+
+    a.logo {
+        margin-top: 10px;
+        margin-left: 3px;
+    }
+
+    .toggle-nav {
+        padding: 0px;
+    }
+
+    .logo-slug {
+        width: 108px;
+        height: 109px;
+        margin-top: 100%;
+        margin-left: 18%;
+    }
+
+    p.howzie-logo {
+        font-size: 22px;
+        padding-top: 15px;
+        margin-top: 0px;
+    }
+
+    p.howzie-slug {
+        font-size: 9px;
+    }
+
+    .main {
+        margin-left: 0px;
+    }
+
+    h3.star-heading {
+        font-size: 11px;
+        color: #111;
+    }
+
+    span.regi-link {
+        font-size: 11px;
+    }
+
+    input.btn.btn-primary.form-submit {
+        width: 37% !important;
+    }
 }

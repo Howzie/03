@@ -13,7 +13,6 @@
                     <tr>
                         <th>Item Code</th>
                         <th>Item Name</th>
-                        <th>Item Specification</th>
                         <th>Item Price</th>
                         <th>Item Delivery Date</th>
                         <th>Select</th>
@@ -28,7 +27,6 @@
                                 <tr id="element" class="item_<%= s.id %>">
                                     <td><%= s.code %></td>
                                     <td><%= s.name %></td>
-                                    <td><%= s.specification %></td>
                                     <td>INR <%= s.price %></td>
                                     <td><%= (@start_date + s.delivery_days).strftime("%d/%m/%Y") %></td>
                                     <td>
@@ -37,7 +35,6 @@
                                 </tr>
                             <% end %>
                                 <tr>
-                                    <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
