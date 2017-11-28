@@ -26,19 +26,18 @@
 		                        <td><%= @user_order.item.specification %></td>
 		                        <td><%= @user_order.delivery_date.strftime("%d/%m/%Y") %></td>
 		                        <td><%= @user_order.item_qty %></td>
-		                        <td> INR <%= @user_order.item.price %></td>
+		                        <td><%= @user_order.item.price %></td>
 		                        <td>
                                 	<%
                                 		@gst = @user_order.item.price.to_f * @user_order.item.gst.to_f / 100.00
                                 		@gst = @gst * @user_order.item_qty
                                 	 %>
-                                	INR <%= @gst.round(2) %>
+                                	<%= @gst.round(2) %>
                                 </td>			
 		                        <td> 
 		                        	<% @total_price = @user_order.item_qty * @user_order.item.price %>
-		                        	INR <%= @total = @total_price + @gst.round(2) %>
+		                        	<%= @total = @total_price + @gst.round(2) %>
 		                        </td>
-		                        <%# @total = @user_order.item_qty * @user_order.item.price  %>
 		                    </tr>
 		                    <tr style="border:2px solid #000;">
 		                    	<td>Paid amount</td>
@@ -48,7 +47,7 @@
 		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>
 		                    	<td>&nbsp;</td>
-		                    	<td>INR <%= @total %></td>
+		                    	<td><%= @total %></td>
 		                    </tr>
 		                </tbody>
 		            </table>
@@ -58,7 +57,7 @@
 				<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 deli-address">
 					<p class="order-address">Delivery address: </p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+				<div class="col-xs-6 col-sm-6 col-md-2 col-lg-8">
 					<p class="date"><%= @user_order.delivery_add %></p>
 				</div>
 			</div>

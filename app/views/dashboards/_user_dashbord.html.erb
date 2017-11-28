@@ -17,7 +17,6 @@
 		                    <tr>
 		                        <th>Order No</th>
 		                        <th>Item Name</th>
-		                        <!-- <th>Item Specification</th> -->
 		                        <th>Price</th>
 		                        <th>Qty</th>
 		                        <th>Delivery Date</th>
@@ -30,8 +29,7 @@
 	                            <tr id="element">
 	                                <td><%= s.id %></td>
 	                                <td><%= s.item.name %></td>
-	                                <!-- <td><%#= s.item.specification %></td> -->
-	                                <td>INR <%= s.item.price %></td>
+	                                <td><%= s.item.price %></td>
 	                                <td><%= s.item_qty %></td>
 	                                <td><%= s.delivery_date.strftime("%d/%m/%Y") %></td>
 	                                <% if s.is_completed == true %>

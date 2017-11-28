@@ -31,10 +31,10 @@
 	                                <td><%= h.code %></td>
 	                                <td><%= h.name %></td>
 	                                <td><%= h.specification %></td>
-	                                <td>INR <%= h.price %></td>
+	                                <td><%= h.price %></td>
 	                                <td><%= @c[i] %></td>
 	                                <td><%= (@start_date + h.delivery_days).strftime("%d/%m/%Y") %></td>
-	                                <td>INR <%= @c[i].to_i * h.price %></td>
+	                                <td><%= @c[i].to_i * h.price %></td>
 	                            </tr>
 	                          	<% i += 1 %>
 		                    <% end %>

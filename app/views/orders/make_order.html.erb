@@ -34,20 +34,20 @@
 		                                <td><%= h.delivery_date.strftime("%d/%m/%Y") %></td>
 		                                <td><%= h.item.name %></td>
 		                                <td><%= h.item_qty %></td>
-		                                <td> INR <%= h.item.price %></td>
+		                                <td><%= h.item.price %></td>
 		                                <td>
 		                                	<%
 		                                		@gst = h.item.price.to_f * h.item.gst.to_f / 100.00
 		                                		@gst = @gst * h.item_qty
 		                                	 %>
-		                                	INR <%= @gst.round(2) %>
+		                                	<%= @gst.round(2) %>
 		                                </td>
 		                                <td> 
 		                                	<% 
 		                                		@price_total = h.item_qty * h.item.price
 		                                		@price_total = @price_total + @gst.round(2) 
 		                                	%>
-		                                	INR <%= @price_total.round(2) %>
+		                                	<%= @price_total.round(2) %>
 		                                </td>
 		                                <% @total << @price_total  %>
 		                                <% @item_total = @item_total + h.item.price %>
@@ -60,9 +60,9 @@
 		                    			<td>&nbsp;</td>
 		                    			<td>&nbsp;</td>
 		                    			<td>&nbsp;</td>
-		                    			<td>INR <%= @item_total.round(2) %></td>
-		                    			<td>INR <%= @gst_total.round(2) %></td>
-		                    			<td>INR <%= @final_total.round(2) %></td>
+		                    			<td><%= @item_total.round(2) %></td>
+		                    			<td><%= @gst_total.round(2) %></td>
+		                    			<td><%= @final_total.round(2) %></td>
 		                    		</tr>
 		                    		<tr>
 		                    			<td>&nbsp;</td>
