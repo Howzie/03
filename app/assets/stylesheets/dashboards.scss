@@ -744,3 +744,155 @@ h3.footer-heading {
         padding: 0px;
     }
 }
+
+
+
+
+
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+
+    .col-xs-3.col-sm-3.col-md-2.col-lg-2.nav-notify {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .top-nav ul.top-menu > li {
+        margin-left: 0px;
+    }
+
+    span.nav-title {
+        font-size: 12px;
+    }
+    .nav-head span.breadcrumb-name {
+            font-size: 8px;
+    }
+    span.customer-id {
+        font-size: 18px;
+    }
+    a.btn.btn-primary.new-order {
+        font-size: 9px;
+    }
+    a.logo span {
+        font-size: 20px;
+    }
+    .notification-row, .task_notificatoin_bar, .search-row, .knob-charts, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
+      display: block !important; 
+    }
+
+    i.icon_menu {
+        display: block;
+        font-size: 29px;
+    }
+
+    a.logo {
+        margin-top: 18px;
+        margin-left: 3px;
+    }
+
+    .toggle-nav {
+        padding: 0px;
+    }
+
+    .logo-slug {
+        width: 108px;
+        height: 109px;
+        margin-top: 100%;
+        margin-left: 18%;
+    }
+
+    p.howzie-logo {
+        font-size: 22px;
+        padding-top: 15px;
+        margin-top: 0px;
+    }
+
+    p.howzie-slug {
+        font-size: 9px;
+    }
+
+    .main {
+        margin-left: 0px;
+    }
+
+    h3.star-heading {
+        font-size: 23px;
+        color: #111;
+    }
+
+    span.regi-link {
+        font-size: 23px;
+    }
+
+    #authsidebar {
+        /* margin: 0px !important; */
+        /* height: auto !important; */
+        /* overflow: hidden; */
+        /* position: absolute !important; */
+        /* width: 100% !important; */
+        /* z-index: 1001; */
+        display: none;
+    }
+
+    div.wrapper.auth-sidebar {
+        width: 100%;
+    }
+
+    a.btn.btn-primary.new-order.pull-right.merchant-action {
+        font-size: 14px;
+        margin-right: 15px;
+    }
+
+    a.btn.btn-primary.new-order.merchant-order {
+        font-size: 14px;
+        margin-left: 6px;
+        float: right;
+    }
+
+    .col-lg-12.main-class-done {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    ul.dropdown-menu.extended.logout {
+        opacity: 1.2;
+    }
+
+    .col-xs-12.col-sm-12.col-md-8.col-lg-8.edit-heading {
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .form-group {
+        font-size: 20px;
+    }
+
+    p.breadcrumb-name {
+        font-size: 18px;
+    }
+
+    .col-xs-12.col-sm-8.col-md-8.col-lg-8.edit-heading.col-sm-offset-2 {
+        padding: 0px;
+    }
+
+    p.order-address {
+        font-size: 20px;
+    }
+
+    p.date {
+        font-size: 20px;
+    }
+
+    .form-control {
+        font-size: 21px;
+    }
+
+    p.delivery_address {
+        font-size: 21px;
+    }
+
+    p.order-delivery-add {
+        font-size: 21px;
+    }
+}
