@@ -456,6 +456,18 @@ a.btn.btn-primary.new-order.merchant-order {
     float: right;
 }
 
+.pagination li.next a {
+    color: #111;
+}
+
+.pagination li.prev span {
+    color: #111;
+}
+
+.pagination li.prev span:hover {
+    color: #111;
+}
+
 // footer css
 
 .footer-distributed{
