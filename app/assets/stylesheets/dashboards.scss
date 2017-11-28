@@ -309,9 +309,10 @@ input.btn.btn-primary.reset-pass-btn {
 }
 
 ol.breadcrumb {
-    margin-top: 65px;
+    margin-top: 19px;
     text-transform: uppercase;
     height: 44px;
+    background-color: #ffff66;
 }
 
 p.breadcrumb-name {
@@ -442,6 +443,17 @@ span.regi-link {
 
 i.icon_menu {
     display: none;
+}
+
+#authsidebar {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    background: #14142a;
+}
+
+a.btn.btn-primary.new-order.merchant-order {
+    float: right;
 }
 
 // footer css
@@ -618,7 +630,7 @@ h3.footer-heading {
 
 }
 
-@media (max-width: 767px){
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
 
     .col-xs-3.col-sm-3.col-md-2.col-lg-2.nav-notify {
         padding-left: 0px !important;
@@ -636,13 +648,13 @@ h3.footer-heading {
             font-size: 8px;
     }
     span.customer-id {
-        font-size: 8px;
+        font-size: 14px;
     }
     a.btn.btn-primary.new-order {
-        font-size: 8px;
+        font-size: 9px;
     }
     a.logo span {
-        font-size: 10px;
+        font-size: 20px;
     }
     .notification-row, .task_notificatoin_bar, .search-row, .knob-charts, .dont-show, .inbox-head .sr-input, .inbox-head .sr-btn {
       display: block !important; 
@@ -650,10 +662,11 @@ h3.footer-heading {
 
     i.icon_menu {
         display: block;
+        font-size: 29px;
     }
 
     a.logo {
-        margin-top: 10px;
+        margin-top: 18px;
         margin-left: 3px;
     }
 
@@ -683,15 +696,46 @@ h3.footer-heading {
     }
 
     h3.star-heading {
-        font-size: 11px;
+        font-size: 13px;
         color: #111;
     }
 
     span.regi-link {
-        font-size: 11px;
+        font-size: 13px;
     }
 
-    input.btn.btn-primary.form-submit {
-        width: 37% !important;
+    #authsidebar {
+        /* margin: 0px !important; */
+        /* height: auto !important; */
+        /* overflow: hidden; */
+        /* position: absolute !important; */
+        /* width: 100% !important; */
+        /* z-index: 1001; */
+        display: none;
+    }
+
+    div.wrapper.auth-sidebar {
+        width: 100%;
+    }
+
+    a.btn.btn-primary.new-order.pull-right.merchant-action {
+        font-size: 7px;
+        margin-top: 2px;
+        margin-right: 10px;
+    }
+
+    a.btn.btn-primary.new-order.merchant-order {
+        font-size: 7px;
+        margin-left: 15px;
+        float: none;
+    }
+
+    .col-lg-12.main-class-done {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    ul.dropdown-menu.extended.logout {
+        opacity: 1.2;
     }
 }
