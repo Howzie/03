@@ -15,6 +15,11 @@ permit_params :user_id, :merchant_id, :item_id, :item_qty, :delivery_add, :posta
 # end
 ActiveAdmin.register Order do
   config.per_page = 25
+  remove_filter :delivery_add
+  remove_filter :is_confirm
+  remove_filter :status
+  remove_filter :created_at
+  remove_filter :updated_at
 end
 
 index do

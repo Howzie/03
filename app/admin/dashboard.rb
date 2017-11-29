@@ -26,7 +26,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
       column do
         panel "Recent Users" do
-            table_for User.order("created_at asc").limit(5) do
+            table_for User.where("user_type =?", false).order("created_at asc").limit(5) do
                 column :name do |user|
                     link_to user.name, [:admin, user]
                 end

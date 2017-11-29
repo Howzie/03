@@ -13,6 +13,25 @@ permit_params :email, :encrypted_password, :reset_password_token, :reset_passwor
 # end
 ActiveAdmin.register User do
   config.per_page = 25
+  remove_filter :accounts
+  remove_filter :orders
+  remove_filter :encrypted_password
+  remove_filter :reset_password_token
+  remove_filter :reset_password_sent_at
+  remove_filter :remember_created_at
+  remove_filter :current_sign_in_at
+  remove_filter :last_sign_in_at
+  remove_filter :address
+  remove_filter :confirmation_token
+  remove_filter :confirmed_at
+  remove_filter :confirmation_sent_at
+  remove_filter :unconfirmed_email
+  remove_filter :failed_attempts
+  remove_filter :locked_at
+  remove_filter :created_at
+  remove_filter :updated_at
+  remove_filter :company_name
+  remove_filter :unlock_token
 end
 
 
@@ -30,5 +49,4 @@ controller do
       User.where(user_type: false)
     end
 end
-
 end
