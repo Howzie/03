@@ -93,12 +93,12 @@ class OrdersController < ApplicationController
 
 				delivery_date =  Date.today + item.delivery_days
 				order = Order.create!(user_id: current_user.id, merchant_id: item.user_id, item_id: item.id, item_qty: id[2], delivery_add: session[:delivery_add], postal_code: session[:postal_code], delivery_date: delivery_date, is_confirm: true )
-				NotificationMailer.purchase_notification(order).deliver_now
 				session[:recent_orders] << order.id
 
 				@stock = item.update_attributes(stock: item.stock.to_i - id[2].to_i)
 
 			end
+			NotificationMailer.purchase_notification(session[:recent_orders], current_user.email).deliver_now
 			session.delete(:items_id)
 			session.delete(:postal_code)
 			session.delete(:delivery_add)

@@ -8,9 +8,9 @@ class NotificationMailer < ApplicationMailer
     end
 
 
-    def purchase_notification(order)
+    def purchase_notification(order, email)
     	@order = order
-        @user_email = order.user.email
+        @user_email = email
         @admin_email = AdminUser.first.email
         mail(to: [@user_email, @admin_email], subject: 'Notification for purchase items')
     end

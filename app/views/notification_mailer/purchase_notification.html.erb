@@ -4,7 +4,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <p>You have received the email to notify purshase items of order-id <%= @order.id %> .</p>
+    <p>You have received the email to notify purshase items.</p>
 
 		<div class="row">
 			<div class="col-lg-12">
@@ -25,15 +25,18 @@
 			        </thead>
 
 			        <tbody>
+			        	<% @order.each do |o| %>
+			        		<% order = Order.find(o) %>
 			                <tr>
-			                    <td><%= @order.item.code %></td>
-			                    <td><%= @order.item.name %></td>
-			                    <td><%= @order.item.specification %></td>
-			                    <td>INR <%= (@order.item.price * @order.item.gst / 100.00) * @order.item_qty  %></td>
-			                    <td><%= @order.item_qty %></td>
-			                    <td><%= @order.delivery_add %></td>
-			                    <td><%= @order.delivery_date %></td>
+			                    <td><%= order.item.code %></td>
+			                    <td><%= order.item.name %></td>
+			                    <td><%= order.item.specification %></td>
+			                    <td>INR <%= (order.item.price * order.item.gst / 100.00) * order.item_qty  %></td>
+			                    <td><%= order.item_qty %></td>
+			                    <td><%= order.delivery_add %></td>
+			                    <td><%= order.delivery_date %></td>
 			                </tr>
+			            <% end %>
 			        </tbody>
 			    	</table>
 		    	</div>
