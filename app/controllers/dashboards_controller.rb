@@ -7,7 +7,6 @@ class DashboardsController < ApplicationController
 		session.delete(:postal_code) if session[:postal_code].present?
 		session.delete(:delivery_add) if session[:delivery_add].present?
 		session.delete(:delivery_date) if session[:delivery_date].present?
-		session.delete(:count) if session[:count].present?
 		session.delete(:item) if session[:item].present?
 
 		@user_orders = Order.where("user_id =?", current_user.id).paginate(:page => params[:page], :per_page => 50)

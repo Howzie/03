@@ -7,10 +7,8 @@ class OrdersController < ApplicationController
 		session.delete(:postal_code) if session[:postal_code].present?
 		session.delete(:delivery_add) if session[:delivery_add].present?
 		session.delete(:delivery_date) if session[:delivery_date].present?
-		session.delete(:count) if session[:count].present?
 		session.delete(:item) if session[:item].present?
 
-		puts session[:items_id].inspect
 		@sample_csv = ["code", "item", "qty"]
 	    respond_to do |format|
 	      format.html
@@ -29,7 +27,7 @@ class OrdersController < ApplicationController
 		session[:items_id] = session[:items_id].reject { |h| h["key"] == m[2] } 
 		session[:items_id] << session[:item]
 
-		puts session[:items_id].inspect
+		# puts session[:items_id].inspect
 		render :nothing => true
 	end
 

@@ -23,10 +23,8 @@
                 </thead>
 
                 <tbody>
-                        <% i = 0 %>
-                        <% @count = 0 %>
-                        <% @short_items.each do |h| %>
-
+                    <% i = 0 %>
+                    <% @short_items.each_with_index do |h, index| %>
                         <% h.each do |s| %>
                             <tr id="element" class="item_<%= s.id %>">
                                 <td><%= s.code %></td>
@@ -37,7 +35,8 @@
                                 <td><%= @c[i] %></td>
                                 <td><%= (@start_date + s.delivery_days).strftime("%d/%m/%Y") %></td>
                                 <td>
-                                    <label><input type="radio" class="user_item" id="item_<%= s.id %>" name="<%= s.code %>" data-id="<%= s.id %>-<%= @c[i]%>-<%= @count %>" data-val="<%= @c[i] %>"></label>
+                                    <% session[:items_id][index] %>
+                                    <label><input type="radio" class="user_item" id="item_<%= s.id %>" name="<%= s.code %>" data-id="<%= s.id %>-<%= @c[i]%>-<%= session[:items_id][index]["key"] %>" data-val="<%= @c[i] %>"></label>
                                 </td>
                             </tr>
                         <% end %>
@@ -51,7 +50,6 @@
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
-                        <% @count += 1 %>
                         <% i += 1 %>
                     <% end %>
                 </tbody>
