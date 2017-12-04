@@ -105,3 +105,13 @@ production:
   password: eae88d327fe2104330b3899dbe43305cd147159526714b1b2dc511d9363247ca
   database: dan40sgfm66n47
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  port: 5432
+  host: ec2-54-163-249-237.compute-1.amazonaws.com
+  username: oagdamchyhbskf
+  password: d7baae25b98f61d7bf083d1a3299ac937f4bb14a1ab77c93b23c627df1f43124
+  database: d8tabt253laj0a
+
