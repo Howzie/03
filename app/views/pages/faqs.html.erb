@@ -1,5 +1,6 @@
 <div class="container-content">
-    <div class="container">
+  <div class="container">
+    <div class="row">
       <div>
         <h3 style="font-weight: bold;">FAQs</h3><br/>
         <p>1. How do I place an order?</p>
@@ -9,22 +10,23 @@
       </div>
 
       <hr/>
-      <h3 style="font-weight: bold;">Contact Form</h3><br/>
-        <%= form_tag send_mail_path, class: "contact_form" do %>
-            <div class="form-group">
-                <%= label_tag 'name', 'Name' %>
-                <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
-            </div>
-           <div class="form-group">
-               <%= label_tag 'email', 'Email' %>
-               <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address' %>
-           </div>
-           <div class="form-group">
-               <%= label_tag 'description', 'Comments' %>
-               <%= text_area_tag 'description', nil, class: 'form-control', rows: 4, placeholder: 'Comments...' %>
-           </div>
-           <%= submit_tag nil, class: 'btn btn-default btn-about pull-right' %>
-       <% end %>
+      <h3 class="star-heading" style="width: 50%;">Write to us</h3><br/>
+      <%= form_tag send_mail_path, class: "contact_form" do %>
+        <div class="form-group">
+          <%= label_tag 'name', 'Name' %>
+          <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'email', 'Email' %>
+          <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'description', 'Comments' %>
+          <%= text_area_tag 'description', nil, class: 'form-control', rows: 4, placeholder: 'Comments...' %>
+        </div>
+        <%= submit_tag "Send", class: 'btn btn-primary btn-about pull-right' %>
+      <% end %>
+    </div>
   </div>
 </div>
 

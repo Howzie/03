@@ -4,15 +4,15 @@
           <h3 class="star-heading">
             Edit User
             <% if current_user.user_type == true %>
-                <p class="edit-customer-id">Merchant id: <%= current_user.id %></p>
+                <p class="edit-customer-id">Merchant id:<%= current_user.id %></p>
             <% else %>
-                <p class="edit-customer-id">Customer id: <%= current_user.id %></p>
+                <p class="edit-customer-id">Customer id:<%= current_user.id %></p>
             <% end %>
           </h3>
         </div>
     </div>
     <div class="row">
-        <div class="main">
+        <div class="f-main">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-sm-offset-2">
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

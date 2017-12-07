@@ -13,6 +13,6 @@ class PagesController < ApplicationController
 	    email = params[:email]
 	    body = params[:description]
 	    ContactMailer.contact_email(name, email, body).deliver_now
-	    redirect_to root_path, notice: 'Message sent successfully'
+	    redirect_to faqs_pages_path, notice: 'Message sent successfully'
 	end
 end
