@@ -1,6 +1,8 @@
   Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  delete "/admin/merchant/:id" => 'admin/merchant#destroy', as: :delete_merchant
   
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   

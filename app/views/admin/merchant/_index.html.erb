@@ -21,6 +21,7 @@
                 <th class="col col-name">
                   Mobile
                 </th>
+                <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
@@ -42,7 +43,7 @@
                     <%= users.mobile %>
                   </td>
                   <td>
-                  	<%= link_to "delete", "/admin/users/#{users.id}", method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-delete", role: "button" %>
+                  	<%= link_to "delete", delete_merchant_path(users.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-delete", role: "button" %>
                   </td>
                 </tr>
               <% end %>
