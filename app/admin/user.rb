@@ -32,6 +32,7 @@ ActiveAdmin.register User do
   remove_filter :updated_at
   remove_filter :company_name
   remove_filter :unlock_token
+  remove_filter :user_type
 end
 
 
