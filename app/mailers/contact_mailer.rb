@@ -4,6 +4,6 @@ class ContactMailer < ApplicationMailer
         @email = email
         @body = body
 
-        mail(to: "rupaliji@hotmail.com", subject: 'Contact Request')
+        mail(to: "office@howzie.net", subject: 'Contact Request')
     end
 end

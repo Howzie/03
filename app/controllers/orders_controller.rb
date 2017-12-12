@@ -116,10 +116,12 @@ class OrdersController < ApplicationController
 
 	def deliver_order
 		@order = Order.find_by("id =?", params[:id])
+		@user_email = @order.user.email
 		if @order.is_delivered == true and @order.status == true
 			@updated_order = @order.update_attributes(is_delivered: false, status: false)
 		else
 			@updated_order = @order.update_attributes(is_delivered: true, status: true)
+			NotificationMailer.order_deliver_notification(@order, @user_email).deliver_now
 		end
 		render :nothing => true
 	end

@@ -21,6 +21,7 @@
 			                <th style="text-align: left;">Qty</th>
 			                <th style="text-align: left;">Delivery Address</th>
 			                <th style="text-align: left;">Delivery Date</th>
+			                <th style="text-align: left;">Status</th>
 			            </tr>
 			        </thead>
 
@@ -35,6 +36,7 @@
 			                    <td><%= order.item_qty %></td>
 			                    <td><%= order.delivery_add %></td>
 			                    <td><%= order.delivery_date %></td>
+			                    <td>Pending</td>
 			                </tr>
 			            <% end %>
 			        </tbody>

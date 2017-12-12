@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <p>You have received the email to notify transaction for order-id <%= @order.id %> is completed.</p>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <p>You have received the email to notify that your item is delivered.</p>
 
-        <div class="row">
+		<div class="row">
 			<div class="col-lg-12">
 				<div class="merch-item">
 					<div class="table-responsive">
@@ -26,31 +26,31 @@
 			        </thead>
 
 			        <tbody>
-			                <tr>
-			                    <td><%= @order.item.code %></td>
-			                    <td><%= @order.item.name %></td>
-			                    <td><%= @order.item.specification %></td>
-			                    <td>INR <%= (@order.item.price * @order.item.gst / 100.00) * @order.item_qty  %></td>
-			                    <td><%= @order.item_qty %></td>
-			                    <td><%= @order.delivery_add %></td>
-			                    <td><%= @order.delivery_date %></td>
-			                    <td>Confirmed</td>
-			                </tr>
+		                <tr>
+		                    <td><%= @order.item.code %></td>
+		                    <td><%= @order.item.name %></td>
+		                    <td><%= @order.item.specification %></td>
+		                    <td>INR <%= (@order.item.price * @order.item.gst / 100.00) * @order.item_qty  %></td>
+		                    <td><%= @order.item_qty %></td>
+		                    <td><%= @order.delivery_add %></td>
+		                    <td><%= @order.delivery_date %></td>
+		                    <td>Delivered</td>
+		                </tr>
 			        </tbody>
 			    	</table>
 		    	</div>
 		    </div>
 		  </div>
-		</div>
-
-    </body>
+		</div> 
+  </body>
 </html>	
+
 
 <style type="text/css">
 	table{
-    	width: 100%;
+    width: 100%;
 	}
 	th {
-    	text-align: left;
+    text-align: left;
 	}
 </style>
