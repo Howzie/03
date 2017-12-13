@@ -63,10 +63,10 @@ show do
       r_cre_at.remember_created_at
     end
     row "current sign in at", :current_sign_in_at do |c_sig_at|
-      c_sig_at.current_sign_in_at.strftime("%d/%m/%Y")
+      c_sig_at.current_sign_in_at.strftime("%d/%m/%Y") if c_sig_at.current_sign_in_at.present?
     end
     row "last sign in at", :last_sign_in_at do |l_sig_at|
-      l_sig_at.last_sign_in_at.strftime("%d/%m/%Y")
+      l_sig_at.last_sign_in_at.strftime("%d/%m/%Y") if l_sig_at.last_sign_in_at.present?
     end
     row "current sign in ip", :current_sign_in_ip do |c_sig_ip|
       c_sig_ip.current_sign_in_ip
@@ -87,10 +87,10 @@ show do
       con_t.confirmation_token
     end
     row "confirmed at", :confirmed_at do |con_at|
-      con_at.confirmed_at.strftime("%d/%m/%Y")
+      con_at.confirmed_at.strftime("%d/%m/%Y") if con_at.confirmed_at.present?
     end
     row "confirmation sent at", :confirmation_sent_at do |con_sent_at|
-      con_sent_at.confirmation_sent_at.strftime("%d/%m/%Y")
+      con_sent_at.confirmation_sent_at.strftime("%d/%m/%Y") if con_sent_at.confirmation_sent_at.present?
     end
     row "company name", :company_name do |com_name|
       com_name.company_name
