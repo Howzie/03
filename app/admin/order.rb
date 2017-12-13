@@ -2,7 +2,7 @@ ActiveAdmin.register Order do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-actions :all, :except => [:edit]
+actions :all, :except => [:edit, :destroy]
 
 permit_params :user_id, :merchant_id, :item_id, :item_qty, :delivery_add, :postal_code, :delivery_date, :is_confirm, :is_delivered, :confirm_date, :paid_date, :status, :is_completed
 #
@@ -38,12 +38,12 @@ index do
 		end
     end
 	column "Qty", :item_qty
-	column :postal_code
+	column "Postcode", :postal_code
 	column :delivery_add
-	column :delivery_date do |date|
+	column "Del date", :delivery_date do |date|
 		date.delivery_date.strftime("%d/%m/%Y")
 	end
-	column "Delivery status", :status do |status|
+	column "Del status", :status do |status|
 		if status.is_delivered == false
 			"Pending"
 		elsif status.is_completed == true
@@ -58,8 +58,56 @@ index do
 	column "Conf date", :confirm_date do |date|
 		date.confirm_date.strftime("%d/%m/%Y") if date.confirm_date.present?
 	end
-	column "Merchant id", :merchant_id
+	column "M id", :merchant_id
 	column "Paid", :paid_date
 	actions
 end
+
+show do
+	attributes_table do
+		row "user id", :user_id do |u_id|
+			u_id.user_id
+		end
+		row "merchant id", :merchant_id do |m_id|
+			m_id.merchant_id
+		end
+		row "item", :item_id do |i_id|
+			i_id.item.name
+		end
+		row "item qty", :item_qty do |i_qty|
+			i_qty.item_qty
+		end
+		row "delivery add", :delivery_add do |d_add|
+			d_add.delivery_add
+		end
+		row "postal code", :postal_code do |p_code|
+			p_code.postal_code
+		end
+		row "delivery date", :delivery_date do |d_date|
+			d_date.delivery_date.strftime("%d/%m/%Y")
+		end
+		row "is confirm", :is_confirm do |i_conf|
+			i_conf.is_confirm
+		end
+		row "is delivered", :is_delivered do |i_del|
+			i_del.is_delivered
+		end
+		row "is completed", :is_completed do |i_del|
+			i_del.is_completed
+		end
+		row "created at", :created_at do |c_dat|
+			c_dat.created_at.strftime("%d/%m/%Y")
+		end
+		row "updated at", :updated_at do |u_dat|
+			u_dat.updated_at.strftime("%d/%m/%Y")
+		end
+		row "confirm date", :confirm_date do |c_dat|
+			c_dat.confirm_date.strftime("%d/%m/%Y") if c_dat.confirm_date.present?
+		end
+		row "paid date", :paid_date do |p_dat|
+			p_dat.paid_date.strftime("%d/%m/%Y") if p_dat.paid_date.present?
+		end
+	end
+end
+
 end

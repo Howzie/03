@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow: visible;">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -26,6 +26,35 @@
         <span class="lite">Howzie</span>
       <% end %>
       <!--logo end-->
+      <div class="top-nav notification-row">
+        <!-- notificatoin dropdown start-->
+        <ul class="nav pull-right top-menu">
+          <!-- user login dropdown start-->
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="username"><%= current_user.name %></span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu extended logout">
+                <div class="log-arrow-up"></div>
+                <li class="eborder-top">
+                  <%= link_to edit_user_registration_path do %>
+                    <i class="icon_profile"></i> My Profile
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => :delete do %>
+                    <i class="icon_key_alt"></i> Log Out
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          <% end %>
+          <!-- user login dropdown end -->
+        </ul>
+        <!-- notificatoin dropdown end-->
+      </div>
     </header>
     <!--header end-->
 
@@ -60,7 +89,6 @@
   
   <!--custome script for all page-->
   <script src="/assets/scripts.js"></script>
-  <script src="/assets/jquery.nicescroll.js"></script>
   </body>
 </html>
 

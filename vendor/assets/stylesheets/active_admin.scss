@@ -41,3 +41,11 @@ body, h1, h2, h3, h4, h5, h6, .sidebar_section label, table.index_table th a, ta
 body {
     line-height: 1;
 }
+
+span.breadcrumb a {
+    color: black !important;
+}
+
+span.breadcrumb {
+    font-size: 14px;
+}

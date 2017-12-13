@@ -45,6 +45,65 @@ index do
 	actions
 end
 
+show do
+  attributes_table do
+    row "email", :email do |u_email|
+      u_email.email
+    end
+    row "encrypted password", :encrypted_password do |e_pass|
+      e_pass.encrypted_password
+    end
+    row "reset password token", :reset_password_token do |r_pass|
+      r_pass.reset_password_token
+    end
+    row "reset password sent at", :reset_password_sent_at do |r_pass_s|
+      r_pass_s.reset_password_sent_at
+    end
+    row "remember created at", :remember_created_at do |r_cre_at|
+      r_cre_at.remember_created_at
+    end
+    row "current sign in at", :current_sign_in_at do |c_sig_at|
+      c_sig_at.current_sign_in_at.strftime("%d/%m/%Y")
+    end
+    row "last sign in at", :last_sign_in_at do |l_sig_at|
+      l_sig_at.last_sign_in_at.strftime("%d/%m/%Y")
+    end
+    row "current sign in ip", :current_sign_in_ip do |c_sig_ip|
+      c_sig_ip.current_sign_in_ip
+    end
+    row "last sign in ip", :last_sign_in_ip do |l_sig_ip|
+      l_sig_ip.last_sign_in_ip
+    end
+    row "name", :name do |n|
+      n.name
+    end
+    row "address", :address do |a|
+      a.address
+    end
+    row "mobile", :mobile do |m|
+      m.mobile
+    end
+    row "confirmation token", :confirmation_token do |con_t|
+      con_t.confirmation_token
+    end
+    row "confirmed at", :confirmed_at do |con_at|
+      con_at.confirmed_at.strftime("%d/%m/%Y")
+    end
+    row "confirmation sent at", :confirmation_sent_at do |con_sent_at|
+      con_sent_at.confirmation_sent_at.strftime("%d/%m/%Y")
+    end
+    row "company name", :company_name do |com_name|
+      com_name.company_name
+    end
+    row "PAN", :PAN do |p|
+      p.accounts.first.PAN
+    end
+    row "GST", :GST do |g|
+      g.accounts.first.GST
+    end
+  end
+end
+
 controller do
     def scoped_collection
       User.where(user_type: false)
