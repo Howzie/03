@@ -1666,7 +1666,7 @@ div[data-role="editor-toolbar"] {
 
 .top-nav .username {
 
-    font-size: 13px;
+    font-size: 16px;
 
     color: #bdbdbd;
 
@@ -9880,5 +9880,13 @@ span.customSelect.changed {
 
     background:url(../img/customSelect-arrow.gif) no-repeat center right;
 
+}
+
+b.caret {
+    border-width: 10px 7px 0px 7px;
+}
+
+span.username:hover {
+    color: #7498F1;
 }
 
